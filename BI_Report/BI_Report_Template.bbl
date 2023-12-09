@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{andrews2012}
+S.~Andrews, F.~Krueger, A.~{Segonds-Pichon}, L.~Biggins, C.~Krueger, and
+  S.~Wingett, ``{{FastQC}}.'' Babraham Institute, Jan. 2012.
+
+\bibitem{bolger_trimmomatic_2014}
+A.~M. Bolger, M.~Lohse, and B.~Usadel, ``Trimmomatic: a flexible trimmer for
+  {Illumina} sequence data,'' {\em Bioinformatics}, vol.~30, pp.~2114--2120,
+  Apr. 2014.
+\newblock \_eprint:
+  https://academic.oup.com/bioinformatics/article-pdf/30/15/2114/48924714/bioinformatics\_30\_15\_2114.pdf.
+
+\bibitem{li2009fast}
+H.~Li and R.~Durbin, ``Fast and accurate short read alignment with
+  burrows--wheeler transform,'' {\em bioinformatics}, vol.~25, no.~14,
+  pp.~1754--1760, 2009.
+
+\bibitem{danecek_twelve_2021}
+P.~Danecek, J.~K. Bonfield, J.~Liddle, J.~Marshall, V.~Ohan, M.~O. Pollard,
+  A.~Whitwham, T.~Keane, S.~A. McCarthy, R.~M. Davies, and H.~Li, ``Twelve
+  years of {SAMtools} and {BCFtools},'' {\em GigaScience}, vol.~10, p.~giab008,
+  Feb. 2021.
+\newblock \_eprint:
+  https://academic.oup.com/gigascience/article-pdf/10/2/giab008/36332246/giab008.pdf.
+
+\bibitem{koboldt_varscan_2009}
+D.~C. Koboldt, K.~Chen, T.~Wylie, D.~E. Larson, M.~D. McLellan, E.~R. Mardis,
+  G.~M. Weinstock, R.~K. Wilson, and L.~Ding, ``{VarScan}: variant detection in
+  massively parallel sequencing of individual and pooled samples,'' {\em
+  Bioinformatics}, vol.~25, pp.~2283--2285, Sept. 2009.
+
+\end{thebibliography}

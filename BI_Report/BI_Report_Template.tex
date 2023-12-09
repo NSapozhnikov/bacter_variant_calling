@@ -1,0 +1,78 @@
+% Adapted from an original template by Hlyni Arnórssyni, Reykjavik University, Iceland
+
+\documentclass{article}
+\input{File_Setup.tex}
+\usepackage{listings}
+\usepackage{lmodern}  % for bold teletype font
+\usepackage{amsmath}  % for \hookrightarrow
+\usepackage{xcolor}   % for \textcolor
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{booktabs}
+\bibliographystyle{ieeetr}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true
+}
+
+\begin{document}
+%Title of the report, name of coworkers (of experiment and of report).
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.6\textwidth]{Graphics/BI_logo.png}\par
+	\vspace{5cm}
+
+	{\scshape\huge Finding variants for antibiotics resistance in E. coli k12\par} 
+	\vspace{1cm}
+	{\Large \today\par}
+	\vfill
+	
+	%%%% PROJECT TITLE
+	{\huge\bfseries Homework number 1\par}
+	\vfill
+	
+	%%%% AUTHOR(S)
+	{\Large\itshape by Sapozhnikov N.A.}\par
+	\vspace{1.5cm}
+
+	\vfill
+
+
+	\vfill
+\end{titlepage}
+
+\newpage
+
+\section{Abstract}
+Antibiotic resistance in microbial communities poses a significant challenge in the effective treatment of bacterial infections. Bacteria, driven by the evolutionary force, exhibit diverse mechanisms of resistance to antibiotics, demanding precise understanding by scientists and healthcare professionals. This project focuses on unraveling the genomic basis of antibiotic resistance in a strain of Escherichia coli (E. coli) resistant to ampicillin, utilizing authentic sequencing data. The objective is to identify the specific mutations responsible for conferring antibiotic resistance properties to E. coli.
+
+\section{Introduction}
+Microbial resistance to antibiotics stands as a formidable obstacle in the realm of infectious disease management. The relentless force of evolution empowers bacteria to adapt and survive, often employing various strategies to resist the effects of antibiotics. Understanding the intricacies of these resistance mechanisms is paramount for scientists and healthcare professionals.
+
+This project focuses on addressing the antibiotic resistance puzzle within Escherichia coli, a bacterial species notorious for its adaptability. The target antibiotic is ampicillin, and our approach involves the analysis of real sequencing data derived from a strain of ampicillin-resistant E. coli. The primary goal is to identify the mutations that drive antibiotic resistance. By deciphering the genomic alterations within key genes, we aim to provide insights into the underlying mechanisms of resistance. Subsequently, this knowledge will serve as a foundation for suggesting alternative antibiotics.
+
+\section{Methods}
+To process our Ilumina 1.9 sequencing data, firstly, we perform a quality control using FastQC \cite{andrews2012}. Then we trim our paired reads using TrimmomaticPE \cite{bolger_trimmomatic_2014}. We used the following parameters while performing the trimming: `LEADING:20`: Removes bases from the start of each read if the quality is below 20; `TRAILING:20`: Removes bases from the end of each read if the quality is below 20; `SLIDINGWINDOW:10:20`: Performs a sliding window trimming with a window size of 10 and trims when the average quality within the window falls below 20; `MINLEN:20`: Drops reads below a length of 20. 
+After achieving satisfactory QC results we performed an alignment on the reference (Genome assembly ASM584v2) using BWA-MEM \cite{li2009fast} and samtools \cite {danecek_twelve_2021} programs. To distinguish actual mutations from the sequencing errors we have used samtools mpileup command with default parameters. Then we called variants using the VarScan program \cite{koboldt_varscan_2009} with --min-var-frequency set to 0.50 (50\%).
+
+\section{Results}
+After the trimming we've achieved the following results: Input Read Pairs: 455876 Both Surviving: 446259 (97.89\%) Forward Only Surviving: 9216 (2.02\%) Reverse Only Surviving: 273 (0.06\%) Dropped: 128 (0.03\%). This data was aligned onto the reference genom with 891649 + 0 mapped (99.87\% : N/A) reads, which we are sattisfied with.
+In our work we've obtained the .vcf file via VarScan with all variants present in our reads. Sadly, due to the technical problems with snpEff they remain unannotated.
+
+\section{Discussion}
+The data obtained is yet to be annotated and described, which is a massive amount of work that we are yet to finish. 
+
+\newpage
+\section{Bibliography}
+
+\bibliography{references}
+
+
+
+\end{document}
+
